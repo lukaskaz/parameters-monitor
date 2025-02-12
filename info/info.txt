@@ -1,0 +1,3 @@
+pi@raspberrypi:~/git/cputemp-monitor/build $ ./cputemp 
+[INFO] Graph [cpu/gpu temperature] available under address(eth0): 192.168.X.XXX:9001/graph
+
