@@ -34,7 +34,7 @@ jobs:
         mkdir build && cd build && cmake .. && make
     - name: Executing cputemp-monitor program
       run: |
-        ./build/cputemp test
+        ./build/monitoring test
 
   test:
     name: Tests
