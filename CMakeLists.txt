@@ -19,10 +19,10 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 add_dependencies(${PROJECT_NAME} libgraphs)
-add_dependencies(${PROJECT_NAME} libshellcmd)
+add_dependencies(${PROJECT_NAME} libshell)
 
 target_link_libraries(${PROJECT_NAME}
     graphs
-    shellcmd
+    shell
 )
 

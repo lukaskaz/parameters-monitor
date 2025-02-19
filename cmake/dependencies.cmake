@@ -25,15 +25,15 @@ include_directories(${source_dir}/inc)
 link_directories(${build_dir}/build)
 
 
-set(source_dir "${CMAKE_BINARY_DIR}/libshellcmd-src")
-set(build_dir "${CMAKE_BINARY_DIR}/libshellcmd-build")
+set(source_dir "${CMAKE_BINARY_DIR}/libshell-src")
+set(build_dir "${CMAKE_BINARY_DIR}/libshell-build")
 
 EXTERNALPROJECT_ADD(
-  libshellcmd
-  GIT_REPOSITORY    https://github.com/lukaskaz/lib-shellcmd.git
+  libshell
+  GIT_REPOSITORY    https://github.com/lukaskaz/lib-shell.git
   GIT_TAG           main
-  PATCH_COMMAND     ${patching_cmd}
-  PREFIX            libshellcmd-workspace
+  PATCH_COMMAND     ""
+  PREFIX            libshell-workspace
   SOURCE_DIR        ${source_dir}
   BINARY_DIR        ${build_dir}
   CONFIGURE_COMMAND mkdir /${build_dir}/build &> /dev/null
