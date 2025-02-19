@@ -1,6 +1,6 @@
 #include "monitoring/interfaces/rpi5/temperature/gpu/monitoring.hpp"
 
-#include "shellcommand.hpp"
+#include "shell/interfaces/linux/bash/shell.hpp"
 
 #include <source_location>
 
@@ -14,7 +14,8 @@ struct Monitoring::Handler
 {
   public:
     explicit Handler(const std::string& command) :
-        readingcmd{command}, shellIf{std::make_unique<shell::BashCommand>()}
+        readingcmd{command},
+        shellIf{shell::Factory::create<shell::lnx::bash::Shell>()}
     {}
 
     std::string reading() const
@@ -24,7 +25,7 @@ struct Monitoring::Handler
 
   private:
     const std::string readingcmd;
-    std::unique_ptr<shell::ShellCommand> shellIf;
+    std::shared_ptr<shell::ShellIf> shellIf;
 
     std::string
         getraw(const std::string funcname =
